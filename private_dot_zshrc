@@ -26,7 +26,7 @@ setopt HIST_IGNORE_ALL_DUPS
 #
 
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -e
+bindkey -v
 
 # Prompt for spelling correction of commands.
 #setopt CORRECT
@@ -78,6 +78,9 @@ WORDCHARS=${WORDCHARS//[\/]}
 # Disable automatic widget re-binding on each precmd. This can be set when
 # zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# User add 
+bindkey '^ ' forward-word
 
 # Customize the style that the suggestions are shown with.
 # See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
