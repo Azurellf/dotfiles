@@ -1,71 +1,40 @@
-;;From kenkyo(https://github.com/argenkiwi/kenkyo)
-
+;; defsrc is still necessary
 (defcfg
-  process-unmapped-keys no
+  process-unmapped-keys yes
 )
 
 (defsrc
-       q w e r t y u i o p
-  caps a s d f g h j k l ;
-       z x c v b n m , . /
+  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
+  caps a s d f j k l ;
+  fn
 )
 
 (defvar
-  streak-count 3
-  streak-time 325
-  tap-timeout 200
-  hold-timeout 500
-  chord-timeout 50
+  tap-time 150
+  hold-time 200
 )
 
-(deftemplate charmod (char mod)
-  (switch 
-    ((key-timing $streak-count less-than $streak-time)) $char break
-    () (tap-hold-release-timeout $tap-timeout $hold-timeout $char $mod $char) break
-  )
+(defalias
+  escctrl (tap-hold $tap-time $tap-time esc caps)
+  a (tap-hold $tap-time $hold-time a lmet)
+  s (tap-hold $tap-time $hold-time s lalt)
+  d (tap-hold $tap-time $hold-time d lsft)
+  f (tap-hold $tap-time $hold-time f lctl)
+  j (tap-hold $tap-time $hold-time j rctl)
+  k (tap-hold $tap-time $hold-time k rsft)
+  l (tap-hold $tap-time $hold-time l ralt)
+  ; (tap-hold $tap-time $hold-time ; rmet)
+  fnl (tap-hold 200 200 fn (layer-toggle fn))
 )
 
-(defchords mtl $chord-timeout
-  (w  ) w
-  (  e) e
-  (w e) esc
+(deflayer base
+  brdn  brup  mctl  sls  dtn  dnd  prev  pp  next  mute  vold  volu
+  @escctrl @a @s @d @f @j @k @l @;
+  @fnl
 )
 
-(defchords mtr $chord-timeout
-  (i  ) i
-  (  o) o
-  (i o) bspc
+(deflayer fn
+  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
+  @escctrl _ _ _ _ _ _ _ _
+  fn
 )
-
-(defchords mbl $chord-timeout
-  (x  ) x
-  (  c) c
-  (x c) tab
-)
-
-(defchords mbr $chord-timeout
-  (,  ) ,
-  (  .) .
-  (, .) ret
-)
-
-(deflayermap (main)
-  w (chord mtl w)
-  e (chord mtl e)
-  i (chord mtr i)
-  o (chord mtr o)
-  caps (t! charmod esc caps)
-  a (t! charmod a lmet)
-  s (t! charmod s lalt)
-  d (t! charmod d lsft)
-  f (t! charmod f lctl)
-  j (t! charmod j rctl)
-  k (t! charmod k rsft)
-  l (t! charmod l lalt)
-  ; (t! charmod ; rmet)
-  x (chord mbl x)
-  c (chord mbl c)
-  , (chord mbr ,)
-  . (chord mbr .)
-)
-
