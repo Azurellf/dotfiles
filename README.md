@@ -1,4 +1,5 @@
-# dofiles
+# dotfiles
+## Neovim
 ## kanata
 - mac
  - How to install: https://github.com/jtroo/kanata/issues/1264#issuecomment-2763085239
