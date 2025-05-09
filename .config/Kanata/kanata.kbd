@@ -5,8 +5,9 @@
 
 (defsrc
   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
-  caps a s d f j k l ;
-  fn
+  bspc
+  caps a    s    d    f    j    k    l    ;
+  fn   lctl
 )
 
 (defvar
@@ -25,8 +26,13 @@
   )
 )
 
+(defvirtualkeys
+  clear (layer-switch base)
+)
+
 (defalias
-  escctrl (tap-hold $tap-time $tap-time esc caps)
+  ;; escctrl (tap-hold $tap-time $tap-time esc caps)
+  escctrl (t! charmod esc caps)
   a (t! charmod a lmet)
   s (t! charmod s lalt)
   d (t! charmod d lsft)
@@ -35,17 +41,33 @@
   k (t! charmod k rsft)
   l (t! charmod l lalt)
   ; (t! charmod ; rmet)
-  fnl (tap-hold 200 200 fn (layer-toggle fn))
+  ;; fnl (tap-hold 200 200 fn (layer-toggle fn))
+  fn-mac (t! charmod fn (multi (layer-switch fn) (on-release tap-virtualkey clear)))
+  fn-win (t! charmod lctl (multi (layer-switch fn) (on-release tap-virtualkey clear)))
 )
 
-(deflayer base
-  brdn  brup  mctl  sls  dtn  dnd  prev  pp  next  mute  vold  volu
-  @escctrl @a @s @d @f @j @k @l @;
-  @fnl
+(platform (macos)
+  (deflayer base
+    brdn  brup  mctl  sls  dtn  dnd  prev  pp  next  mute  vold  volu
+    bspc
+    @escctrl @a @s @d @f @j @k @l @;
+    @fn-mac _
+  )
 )
+
+(platform (win linux)
+  (deflayer base
+    brdn  brup  mctl  sls  dtn  dnd  prev  pp  next  mute  vold  volu
+    bspc
+    @escctrl @a @s @d @f @j @k @l @;
+    _ @fn-win
+  )
+)
+
 
 (deflayer fn
   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
+  del
   @escctrl _ _ _ _ _ _ _ _
-  fn
+  _ _
 )
