@@ -12,11 +12,9 @@
 
 (defvar
   streak-count 3
-  streak-time 300
-  tap-timeout 175
-  tap-time 200
-  hold-timeout 400
-  chord-timeout 50
+  streak-time 275
+  tap-timeout 150
+  hold-timeout 350
 )
 
 (deftemplate charmod (char mod)
@@ -31,7 +29,6 @@
 )
 
 (defalias
-  ;; escctrl (tap-hold $tap-time $tap-time esc caps)
   escctrl (t! charmod esc caps)
   a (t! charmod a lmet)
   s (t! charmod s lalt)
