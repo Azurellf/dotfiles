@@ -7,7 +7,7 @@
   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
   bspc
   caps a    s    d    f    j    k    l    ;
-  fn   lctl
+  fn   lctl ralt
 )
 
 (defvar
@@ -48,7 +48,7 @@
     brdn  brup  mctl  sls  dtn  dnd  prev  pp  next  mute  vold  volu
     bspc
     @escctrl @a @s @d @f @j @k @l @;
-    @fn-mac _
+    @fn-mac _ _
   )
 )
 
@@ -66,5 +66,5 @@
   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
   del
   @escctrl _ _ _ _ _ _ _ _
-  _ _
+  _ _ rctl
 )
