@@ -1,0 +1,8 @@
+""" Map leader to space ---------------------
+noremap <SPACE> <Nop>
+let mapleader = " "
+
+Plug 'easymotion/vim-easymotion'
+set easymotion
+
+map s <Plug>(easymotion-s)
