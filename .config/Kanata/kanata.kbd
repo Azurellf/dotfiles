@@ -3,11 +3,22 @@
   process-unmapped-keys yes
 )
 
-(defsrc
-  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
-  bspc
-  caps a    s    d    f    j    k    l    ;
-  fn   lctl ralt
+(platform (macos)
+  (defsrc
+    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
+    bspc
+    caps a    s    d    f    j    k    l    ;
+    fn
+  )
+)
+
+(platform (win linux)
+  (defsrc
+    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
+    bspc
+    caps a    s    d    f    j    k    l    ;
+    lctl
+  )
 )
 
 (defvar
@@ -29,7 +40,7 @@
 )
 
 (defalias
-  escctrl (t! charmod esc caps)
+  esccaps (t! charmod esc caps)
   a (t! charmod a lmet)
   s (t! charmod s lalt)
   d (t! charmod d lsft)
@@ -38,17 +49,26 @@
   k (t! charmod k rsft)
   l (t! charmod l lalt)
   ; (t! charmod ; rmet)
-  ;; fnl (tap-hold 200 200 fn (layer-toggle fn))
-  fn-mac (t! charmod fn (multi (layer-switch fn) (on-release tap-virtualkey clear)))
-  fn-win (t! charmod lctl (multi (layer-switch fn) (on-release tap-virtualkey clear)))
+)
+
+(platform (macos)
+  (defalias
+    fn-mac (t! charmod fn (multi (layer-switch fn) (on-release tap-virtualkey clear)))
+  )
+)
+
+(platform (win linux)
+  (defalias
+    fn-win (t! charmod lctl (multi (layer-switch fn) (on-release tap-virtualkey clear)))
+  )
 )
 
 (platform (macos)
   (deflayer base
     brdn  brup  mctl  sls  dtn  dnd  prev  pp  next  mute  vold  volu
     bspc
-    @escctrl @a @s @d @f @j @k @l @;
-    @fn-mac _ _
+    @esccaps @a @s @d @f @j @k @l @;
+    @fn-mac
   )
 )
 
@@ -56,15 +76,25 @@
   (deflayer base
     brdn  brup  mctl  sls  dtn  dnd  prev  pp  next  mute  vold  volu
     bspc
-    @escctrl @a @s @d @f @j @k @l @;
-    _ @fn-win
+    @esccaps @a @s @d @f @j @k @l @;
+    @fn-win
   )
 )
 
+(platform (macos)
+  (deflayer fn
+    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
+    del
+    @esccaps _ _ _ _ _ _ _ _
+    @fn-mac
+  )
+)
 
-(deflayer fn
-  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
-  del
-  @escctrl _ _ _ _ _ _ _ _
-  _ _ rctl
+(platform (win linux)
+  (deflayer fn
+    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
+    del
+    @esccaps _ _ _ _ _ _ _ _
+    @fn-win
+  )
 )
