@@ -1,7 +1,18 @@
 # dotfiles
-- How to install the dotfiles
-  - git clone repository
-  - `cd dotfiles & stow .`
+## Usage
+- Unix
+```sh
+cd ~ & git clone https://github.com/Azurellf/dotfiles.git
+cd dotfiles
+stow .
+```
+## Software
+```
+Win
+- Terminal: wezterm
+Uinx
+- Terminal: wezterm
+```
 ## Neovim
 ## kanata
 - mac
