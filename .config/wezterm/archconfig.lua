@@ -5,7 +5,7 @@ local module = {}
 local unix = {}
 
 local win = {
-	default_prog = { "C:/msys64/msys2_shell.cmd", "-defterm", "-here", "-no-start", "-ucrt64", "-shell zsh" },
+	default_prog = { "C:/msys64/msys2_shell.cmd", "-defterm", "-here", "-no-start", "-ucrt64", "-shell", "zsh" },
 }
 
 function module.apply_to_config(config)
