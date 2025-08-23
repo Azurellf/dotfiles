@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 
 config = {
 	-- FONT
-	font_size = 20,
+	font_size = 16,
 
 	-- COLOR SCHEME
 	color_scheme = "Catppuccin Mocha",

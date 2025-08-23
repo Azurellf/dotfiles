@@ -1,4 +1,20 @@
 # .config/shell/aliases.sh
 
 # Git
+alias ga="git add"
+alias gap="ga --patch"
 alias gb="git branch"
+alias gba="gb -a"
+alias gc="git commit"
+alias gca="gc --amend --no-edit"
+alias gco="git checkout"
+alias gcl="git clone"
+alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
+alias gds="gd --staged"
+alias gl="git log --graph --all --pretty='%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'"
+alias gm="git merge"
+alias gsw="git switch"
+alias gp="git push"
+alias gr="git reset"
+alias gs="git status --short"
+alias gu="git pull"
