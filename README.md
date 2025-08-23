@@ -1,4 +1,7 @@
 # dotfiles
+- How to install the dotfiles
+  - git clone repository
+  - `cd dotfiles & stow .`
 ## Neovim
 ## kanata
 - mac
