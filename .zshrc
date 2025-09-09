@@ -5,6 +5,8 @@ case $- in # check shell options
       *) return;; # don't do anything
 esac
 
+autoload -U compinit
+compinit
 SHELL_CONFIG="$HOME/.config/shell" # general shell configs
 [ -f "$SHELL_CONFIG/aliases.sh" ] && . "$SHELL_CONFIG/aliases.sh"
 # Set up fzf key bindings and fuzzy completion
