@@ -1,0 +1,5 @@
+# .config/git/config_windows
+
+[core]
+  autocrlf = true
+  ignorecase = true

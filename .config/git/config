@@ -1,4 +1,19 @@
 # .config/git/config
 
+[core]
+  safecrlf = true
+  editor = nvim
 [worktree]
   useRelativePaths = true
+
+[interactive]
+  singlekey = true
+
+[includeIf "git:os:Windows"]
+    path = config_windows
+
+[includeIf "git:os:Linux"]
+    path = config_unix
+
+[includeIf "git:os:macOS"]
+    path = config_unix
