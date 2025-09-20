@@ -1,0 +1,1 @@
+--preview 'fzf-preview.sh {}' --reverse --preview-window=wrap:border-sharp:65%:
