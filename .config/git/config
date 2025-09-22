@@ -6,14 +6,8 @@
 [worktree]
   useRelativePaths = true
 
-[interactive]
-  singlekey = true
-
-[includeIf "git:os:Windows"]
+[includeIf "gitdir:/D/Code/"]
     path = config_windows
 
-[includeIf "git:os:Linux"]
-    path = config_unix
-
-[includeIf "git:os:macOS"]
+[includeIf "gitdir:~/dotfiles/"]
     path = config_unix
