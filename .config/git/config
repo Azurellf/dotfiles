@@ -2,7 +2,7 @@
 
 [core]
   editor = nvim
-  page = delta
+  pager = delta
   safecrlf = true
 
 [interactive]
