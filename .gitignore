@@ -1,3 +1,4 @@
 .DS_Store
 .config/codex/*
 !.config/codex/config.toml
+!.config/codex/AGENTS.md
