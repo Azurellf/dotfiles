@@ -5,6 +5,9 @@
   pager = delta
   safecrlf = true
 
+[color]
+  ui = true
+
 [interactive]
   diffFilter = delta --color-only
 
@@ -18,7 +21,11 @@
   navigate = true
   dark = true
   line-numbers = true
-  side-by-side = true
+  side-by-side = false
+
+[push]
+  autoSetupRemote = true # don't need git push -u
+  default = current
 
 [includeIf "gitdir:/D/Code/"]
     path = config_windows

@@ -2,3 +2,6 @@
 
 # fzf options
 export FZF_DEFAULT_OPTS_FILE="$HOME/.config/fzf/fzfrc"
+
+# NVM Configuration
+export NVM_DIR="$HOME/.nvm"

@@ -1,5 +1,8 @@
 # .config/shell/aliases.sh
 
+# editor
+alias vi="nvim"
+
 # Git
 alias ga="git add"
 alias gap="ga --patch"
@@ -17,11 +20,11 @@ alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
 alias gds="gd --staged"
 alias gf="git fetch"
 alias gl="git log --graph --all --pretty='%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'"
+alias glt="git -P log --all --color=always --pretty=tformat:'%<(50,trunc)%s %C(auto)%<(30,trunc)%d %C(blue)%>(10,trunc)%an %C(yellow)%as %C(magenta)%h'"
 alias gm="git merge"
 alias gp="git push"
 alias gpd="gp -d"
 alias gpf="gp -f"
-alias gpu="gp -u"
 alias grs="git reset"
 alias grsh="grs --hard"
 alias grsm="grs --mixed"
