@@ -1,0 +1,72 @@
+# Codex example configuration (config.toml)
+
+################################################################################
+# Core Model Selection
+################################################################################
+
+model = "gpt-5.4"
+
+personality = "pragmatic"
+
+################################################################################
+# Approval & Sandbox
+################################################################################
+
+approval_policy = "on-request"
+
+sandbox_mode = "workspace-write"
+
+################################################################################
+# UI, Notifications, and Misc
+################################################################################
+
+check_for_update_on_startup = true
+
+################################################################################
+# Web Search
+################################################################################
+
+web_search = "cached"
+
+################################################################################
+# Sandbox settings (tables)
+################################################################################
+
+[sandbox_workspace_write]
+writable_roots = []
+network_access = false
+exclude_tmpdir_env_var = false
+exclude_slash_tmp = false
+
+################################################################################
+# Centralized Feature Flags (preferred)
+################################################################################
+
+[features]
+# shell_tool = true
+# apps = false
+# codex_hooks = false
+# unified_exec = true
+# shell_snapshot = true
+multi_agent = true
+# personality = true
+# fast_mode = true
+# smart_approvals = false
+# enable_request_compression = true
+# skill_mcp_dependency_install = true
+# prevent_idle_sleep = false
+
+################################################################################
+# Projects (trust levels)
+################################################################################
+
+[projects]
+
+[projects."/Users/lee/Code/video-print"]
+trust_level = "trusted"
+
+[tui]
+theme = "catppuccin-mocha"
+# Mark specific worktrees as trusted or untrusted.
+# [projects."/absolute/path/to/project"]
+# trust_level = "trusted"  # or "untrusted"

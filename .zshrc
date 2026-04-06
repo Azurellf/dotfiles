@@ -19,4 +19,7 @@ source <(fzf --zsh)
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# Codex
+export CODEX_HOME="$HOME/.config/codex"
+
 PS1="%n@%m %1~ %# "
